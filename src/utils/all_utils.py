@@ -1,4 +1,5 @@
 from importlib.resources import contents
+from operator import index
 import yaml
 import os
 
@@ -13,3 +14,7 @@ def create_directory(dirs: list):
     for dir_path in dirs:
         os.makedirs(dir_path,exist_ok=True)
         print(f"Directory is created at {dir_path}")
+
+def save_local_df(data,data_path,index=False):
+    data.to_csv(data_path,index=index)
+    print(f"data is saved at {data_path}")
